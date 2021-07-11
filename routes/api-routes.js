@@ -22,6 +22,8 @@ router.put("/api/workouts/:id", (req, res) => {
       res.json(results);
     })
     .catch((err) => {
+      console.log(err);
+
       res.json(err);
     });
 });
@@ -30,7 +32,7 @@ router.put("/api/workouts/:id", (req, res) => {
 router.post("/api/workouts", (req, res) => {
   console.log("Creating a new workout....");
   db.Workout.create(req.body)
-    .then((req, res) => {
+    .then((results) => {
       res.json(results);
     })
     .catch((err) => {
